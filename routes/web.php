@@ -18,7 +18,7 @@ Route::middleware(['auth'])->group(function () {
     Volt::route('settings/password', 'settings.password')->name('settings.password');
     Volt::route('settings/appearance', 'settings.appearance')->name('settings.appearance');
 
-    Route::redirect('tickets', 'tickets.index');
+    Route::redirect('tickets', 'tickets.index')->name('tickets.index');
     Volt::route('tickets/create', 'tickets.create')->name('tickets.create');
 
 });

@@ -8,7 +8,7 @@ class DashboardActions extends Component
 {
     public function createTicket()
     {
-        return redirect(route('tickets.create'));
+        $this->redirect(route('tickets.create'), navigate: true);
     }
 
     public function render()
