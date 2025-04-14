@@ -10,6 +10,7 @@
                     {{ __('Open Tickets') }}
                 </h1>
                 <livewire:grids.open-tickets-table> --}}
+                <livewire:dashboard-actions>
             </div>
             <div
                 class="relative aspect-3/1 overflow-x-hidden rounded-xl border border-neutral-200 dark:border-neutral-700
@@ -24,9 +25,9 @@
         </div>
         <div class="relative h-full flex-1 overflow-hidden rounded-xl border border-neutral-200 dark:border-neutral-700">
             <h1 class="p-2">
-                {{ __('Latest Tickets') }}
+                {{ __('Open Tickets') }}
             </h1>
-            <livewire:grids.latest-tickets-table>
+            <livewire:grids.open-tickets-table>
         </div>
     </div>
 </x-layouts.app>
