@@ -8,22 +8,20 @@ use Rappasoft\LaravelLivewireTables\Views\Column;
 use Rappasoft\LaravelLivewireTables\Views\Columns\DateColumn;
 use App\Models\Ticket;
 
-class OpenTicketsTable extends DataTableComponent
+class LatestTicketsTable extends DataTableComponent
 {
     protected $model = Ticket::class;
 
     public function configure(): void
     {
         $this->setPrimaryKey('id');
-        $this->setSearchStatus(false);
         $this->setColumnSelectStatus(false);
-        $this->setPaginationVisibilityStatus(false);
-        $this->setPaginationDisabled();
     }
     public function builder(): Builder
     {
         return Ticket::query()
-            ->with('employee');
+            ->with('employee')
+            ->orderByDesc('created_at');
     }
     public function columns(): array
     {
@@ -32,11 +30,13 @@ class OpenTicketsTable extends DataTableComponent
             Column::make("Employee", "employee.name"),
             Column::make("Type", "type"),
             Column::make("Customer", "customer_name"),
-            // Column::make("Customer mobile", "customer_mobile"),
+            Column::make("Customer mobile", "customer_mobile"),
+            Column::make("Customer address", "customer_address"),
             // Column::make("Note", "note"),
             DateColumn::make('Created At', 'created_at')
                 ->outputFormat('Y-m-d'),
-            // Column::make("Updated at", "updated_at"),
+            DateColumn::make('Closed At', 'closed_at')
+                ->outputFormat('Y-m-d'),
         ];
     }
 }

@@ -15,6 +15,7 @@ return new class extends Migration {
             $table->enum('type', ['sales', 'enquire', 'maintenance']);
             $table->string('customer_name');
             $table->string('customer_mobile');
+            $table->string('customer_address');
             $table->unsignedBigInteger(column: 'employee_id');
             $table->unsignedBigInteger('created_by');
             $table->string('note');
