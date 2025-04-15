@@ -19,19 +19,26 @@ class Create extends Component
     {
         $this->employees = Employee::all();
     }
+    public function updatedEmployee($value)
+    {
+        dd($value);
+    }
     public function create()
     {
-        dd('x');
-        $validated = $this->validate([
-            'type' => ['required', 'string'],
-            'customer_name' => ['required', 'string', 'max:255'],
-            'customer_address' => ['required', 'string', 'max:255'],
-            'customer_mobile' => ['required', 'numeric'],
-            'note' => ['sometimes', 'string', 'max:255'],
-            'employee_id' => ['sometimes', 'integer', 'exists:employees,id'],
-        ]);
-        Ticket::create($validated);
-        $this->redirect(route('tickets.index'), navigate: true);
+        try {
+            $validated = $this->validate([
+                'type' => ['required', 'string'],
+                'customer_name' => ['required', 'string', 'max:255'],
+                'customer_address' => ['required', 'string', 'max:255'],
+                'customer_mobile' => ['required', 'numeric'],
+                'note' => ['sometimes', 'string', 'max:255'],
+                'employee' => ['sometimes', 'string', 'exists:employees,id'],
+            ]);
+            Ticket::create($validated);
+            $this->redirect(route('tickets.index'), navigate: true);
+        } catch (\Throwable $th) {
+            dd($th);
+        }
     }
     public function render()
     {
