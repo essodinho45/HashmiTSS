@@ -18,8 +18,11 @@ Route::middleware(['auth'])->group(function () {
     Volt::route('settings/password', 'settings.password')->name('settings.password');
     Volt::route('settings/appearance', 'settings.appearance')->name('settings.appearance');
 
-    Route::redirect('tickets', 'tickets.index')->name('tickets.index');
+    Volt::route('tickets', 'tickets.index')->name('tickets.index');
     Volt::route('tickets/create', 'tickets.create')->name('tickets.create');
+
+    Volt::route('employees', 'employees.index')->name('employees.index');
+    Volt::route('employees/create', 'employees.create')->name('employees.create');
 
 });
 

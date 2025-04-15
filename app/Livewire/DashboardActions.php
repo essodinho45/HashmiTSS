@@ -10,6 +10,10 @@ class DashboardActions extends Component
     {
         $this->redirect(route('tickets.create'), navigate: true);
     }
+    public function createEmployee()
+    {
+        $this->redirect(route('employees.create'), navigate: true);
+    }
 
     public function render()
     {

@@ -21,8 +21,8 @@
                 <flux:navlist.item icon="ticket" :href="route('tickets.index')"
                     :current="request()->routeIs('tickets.index')||request()->routeIs('tickets.create')" wire:navigate>{{ __('Tickets') }}
                 </flux:navlist.item>
-                <flux:navlist.item icon="user-circle" href="#"
-                    :current="false" wire:navigate>{{ __('Employees') }}
+                <flux:navlist.item icon="user-circle" :href="route('employees.index')"
+                    :current="request()->routeIs('employees.index')||request()->routeIs('employees.create')" wire:navigate>{{ __('Employees') }}
                 </flux:navlist.item>
             </flux:navlist.group>
         </flux:navlist>
