@@ -27,15 +27,15 @@ class LatestTicketsTable extends DataTableComponent
     {
         return [
             // Column::make("Id", "id"),
-            Column::make("Employee", "employee.name"),
-            Column::make("Type", "type"),
-            Column::make("Customer", "customer_name"),
-            Column::make("Customer mobile", "customer_mobile"),
-            Column::make("Customer address", "customer_address"),
+            Column::make(__("Employee"), "employee.name"),
+            Column::make(__("Type"), "type"),
+            Column::make(__("Customer"), "customer_name"),
+            Column::make(__("Customer mobile"), "customer_mobile"),
+            Column::make(__("Customer address"), "customer_address"),
             // Column::make("Note", "note"),
-            DateColumn::make('Created At', 'created_at')
+            DateColumn::make(__('Created At'), 'created_at')
                 ->outputFormat('Y-m-d'),
-            DateColumn::make('Closed At', 'closed_at')
+            DateColumn::make(__('Closed At'), 'closed_at')
                 ->outputFormat('Y-m-d'),
         ];
     }

@@ -12,16 +12,12 @@ class Create extends Component
     public $customer_mobile;
     public $customer_address;
     public $note;
-    public $type;
-    public $employee_id;
-    public $employees;
-    public function mount()
+    public $type = 'enquire';
+    public $employee_id = null;
+    public $showEmployees = false;
+    public function updatedType($value)
     {
-        $this->employees = Employee::all();
-    }
-    public function updatedEmployee($value)
-    {
-        dd($value);
+        $this->showEmployees = ($value != 'enquire');
     }
     public function create()
     {
@@ -32,8 +28,9 @@ class Create extends Component
                 'customer_address' => ['required', 'string', 'max:255'],
                 'customer_mobile' => ['required', 'numeric'],
                 'note' => ['sometimes', 'string', 'max:255'],
-                'employee' => ['sometimes', 'string', 'exists:employees,id'],
+                'employee_id' => ['sometimes', 'integer', 'exists:employees,id'],
             ]);
+            $validated['created_by'] = auth()->id();
             Ticket::create($validated);
             $this->redirect(route('tickets.index'), navigate: true);
         } catch (\Throwable $th) {
@@ -42,6 +39,9 @@ class Create extends Component
     }
     public function render()
     {
-        return view('livewire.tickets.create');
+        $employees = Employee::query()->where('type', $this->type)->get();
+        if(count($employees))
+            $this->employee_id = $employees[0]->id;
+        return view('livewire.tickets.create', ['employees' => $employees]);
     }
 }

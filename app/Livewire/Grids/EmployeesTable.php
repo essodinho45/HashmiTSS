@@ -23,9 +23,9 @@ class EmployeesTable extends DataTableComponent
     public function columns(): array
     {
         return [
-            Column::make("Name"),
-            Column::make('Mobile'),
-            Column::make('Type'),
+            Column::make(__('Name'), 'name'),
+            Column::make(__('Mobile'), 'mobile'),
+            Column::make(__('Type'), 'type'),
         ];
     }
 }

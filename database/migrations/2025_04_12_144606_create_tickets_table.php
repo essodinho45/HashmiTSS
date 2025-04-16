@@ -16,10 +16,10 @@ return new class extends Migration {
             $table->string('customer_name');
             $table->string('customer_mobile');
             $table->string('customer_address');
-            $table->unsignedBigInteger(column: 'employee_id');
+            $table->unsignedBigInteger(column: 'employee_id')->nullable()->default(null);
             $table->unsignedBigInteger('created_by');
             $table->string('note');
-            $table->dateTime('closed_at');
+            $table->dateTime('closed_at')->nullable()->default(null);
             $table->timestamps();
         });
     }

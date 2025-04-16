@@ -29,12 +29,12 @@ class OpenTicketsTable extends DataTableComponent
     {
         return [
             // Column::make("Id", "id"),
-            Column::make("Employee", "employee.name"),
-            Column::make("Type", "type"),
-            Column::make("Customer", "customer_name"),
+            Column::make(__("Employee"), "employee.name"),
+            Column::make(__("Type"), "type"),
+            Column::make(__("Customer"), "customer_name"),
             // Column::make("Customer mobile", "customer_mobile"),
             // Column::make("Note", "note"),
-            DateColumn::make('Created At', 'created_at')
+            DateColumn::make(__('Created At'), 'created_at')
                 ->outputFormat('Y-m-d'),
             // Column::make("Updated at", "updated_at"),
         ];

@@ -10,15 +10,19 @@ class Create extends Component
 {
     public $name;
     public $mobile;
-    public $type;
+    public $type = 'sales';
     public function create()
     {
-        $validated = $this->validate([
-            'type' => ['required', 'string'],
-            'name' => ['required', 'string', 'max:255'],
-            'mobile' => ['required', 'numeric'],
-        ]);
-        Employee::create($validated);
+        try {
+            $validated = $this->validate([
+                'type' => ['required', 'string'],
+                'name' => ['required', 'string', 'max:255'],
+                'mobile' => ['required', 'numeric'],
+            ]);
+            Employee::create($validated);
+        }catch (\Exception $e){
+            dd($e);
+        }
         $this->redirect(route('employees.index'), navigate: true);
     }
     public function render()

@@ -28,8 +28,8 @@ class ActiveEmployeesTable extends DataTableComponent
     public function columns(): array
     {
         return [
-            Column::make("Name"),
-            CountColumn::make('Tickets')
+            Column::make(__('Name'), 'name'),
+            CountColumn::make(__('Tickets'))
                 ->setDataSource('tickets'),
         ];
     }
