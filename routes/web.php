@@ -1,13 +1,14 @@
 <?php
 
-use App\Livewire\Tickets\PrintTicket;
 use App\Models\Ticket;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
-Route::get('/', function () {
-    return redirect('dashboard');
-})->name('home');
+Route::redirect('/', 'dashboard')->name('home');
+// Route::get('/', function () {
+
+//     return redirect('dashboard');
+// })->name('home');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

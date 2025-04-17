@@ -40,7 +40,7 @@ new #[Layout('components.layouts.auth')] class extends Component {
         RateLimiter::clear($this->throttleKey());
         Session::regenerate();
 
-        $this->redirectIntended(default: route('dashboard', absolute: false), navigate: true);
+        $this->redirect(route('dashboard', absolute: false), navigate: true);
     }
 
     /**
@@ -97,7 +97,7 @@ new #[Layout('components.layouts.auth')] class extends Component {
         </div>
 
         <!-- Remember Me -->
-{{--        <flux:checkbox wire:model="remember" :label="__('Remember me')" />--}}
+        {{--        <flux:checkbox wire:model="remember" :label="__('Remember me')" /> --}}
 
         <div class="flex items-center justify-end">
             <flux:button variant="primary" type="submit" class="w-full">{{ __('Log in') }}</flux:button>
