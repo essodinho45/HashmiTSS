@@ -33,8 +33,7 @@ class LatestTicketsTable extends DataTableComponent
                     'class' => 'hidden',
                 ];
             }
-
-            return [];
+            return ['default' => true];
         });
     }
     public function builder(): Builder

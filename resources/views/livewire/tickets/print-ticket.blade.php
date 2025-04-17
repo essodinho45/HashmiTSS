@@ -9,6 +9,10 @@
             border-collapse: collapse;
             padding: 5px;
         }
+
+        table {
+            min-width: 90vw;
+        }
     </style>
 </head>
 
