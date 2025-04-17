@@ -28,7 +28,7 @@ class Create extends Component
                 'customer_address' => ['required', 'string', 'max:255'],
                 'customer_mobile' => ['required', 'numeric'],
                 'note' => ['sometimes', 'string', 'max:255'],
-                'employee_id' => ['sometimes', 'integer', 'exists:employees,id'],
+                'employee_id' => ['nullable', 'integer', 'exists:employees,id'],
             ]);
             $validated['created_by'] = auth()->id();
             Ticket::create($validated);
@@ -40,7 +40,7 @@ class Create extends Component
     public function render()
     {
         $employees = Employee::query()->where('type', $this->type)->get();
-        if(count($employees))
+        if (count($employees))
             $this->employee_id = $employees[0]->id;
         return view('livewire.tickets.create', ['employees' => $employees]);
     }

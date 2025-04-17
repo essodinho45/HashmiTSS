@@ -19,8 +19,11 @@
     "Note": "ملاحظة",
     "Sales": "مبيعات",
     "Enquire": "استفسار",
+    "sales": "مبيعات",
+    "enquire": "استفسار",
     "Select Employee": "الرجاء اختيار الموظف",
     "Maintenance": "صيانة",
+    "maintenance": "صيانة",
     "Created At": "تاريخ الإنشاء",
     "Closed At": "تاريخ الإغلاق",
     "Mobile": "رقم الموبايل",
@@ -33,6 +36,9 @@
     "Username": "اسم المستخدم",
     "Password": "كلمة المرور",
     "Log in": "تسجيل الدخول",
+    "Action": "عمليات",
+    "Print": "طباعة",
+    "Close": "إغلاق",
     "": "",
     "Al Hashimy Group": "مجموعة الهاشمي"
 }
